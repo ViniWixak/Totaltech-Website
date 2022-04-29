@@ -7,10 +7,11 @@ body {
     justify-content: space-around;
     align-items: center;
     right: 50px;
-    height: 70px;
-    background-color: rgb(158, 158, 241);
+    height: 100px;
+    background-color: #5D737E;
     font-family: 'Times New Roman', Times, serif;
     font-size: large;
+    color: #DAFFEF;
 }
 
 .opcoes {
@@ -18,4 +19,36 @@ body {
     display: flex;
     justify-content: space-around;
     font-size: medium;
+}
+
+.QuemSomos{
+    display: grid;
+    grid-template-columns: 64% 18% 18%;
+    justify-content: flex-start;
+}
+
+.QuemSomos div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    background-color: #64B6AC;
+}
+
+.QuemSomos div:nth-child(2) {
+    position: relative;
+    fill: #5D737E;
+    top: 50px;
+    left: -86px;
+}
+
+#textoQuemSomos {
+    position: relative;
+    left: -290px;
+    width: 345px;
+    top: 67px;
+    color: #DAFFEF;
+}
+#imagemQuemSomos{
+    
 }
