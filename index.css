@@ -1,0 +1,21 @@
+body {
+    margin: 0px;
+}
+
+.Menu {
+    display: flex;  
+    justify-content: space-around;
+    align-items: center;
+    right: 50px;
+    height: 70px;
+    background-color: rgb(158, 158, 241);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
+.opcoes {
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+    font-size: medium;
+}
