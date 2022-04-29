@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Totaltech</title>
     <link rel="stylesheet" href="index.css"/>
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
 </head>
 <body>
     <header>
@@ -26,16 +22,16 @@
     </header>
 
     <div class="QuemSomos">
-        <div id="imagemQuemSomos">
-            <img src="./pics/quemsomos.jpg" alt="Quem somos" style="width: 80%;z-index: 1";>
+        <div id="imagemQuemSomos" data-anima="esquerda">
+            <img src="./pics/quemsomos.jpg" alt="Quem somos" style="width: 80%; z-index:2;";>
         </div>
         
-        <div id="molduraQuemSomos">
+        <div id="molduraQuemSomos" data-anima="topo">
             <svg width="420" height="280">
                 <rect width="100%" height="100%"/>
             </svg>            
         </div>
-        <div id="textoQuemSomos">
+        <div id="textoQuemSomos" data-anima="direita">
             <h2>Quem somos</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -45,7 +41,6 @@
         </div>
     </div>
 
-
-    </div>
+    <script type="text/javascript" src="scripts.js"></script>
 </body>
 </html>

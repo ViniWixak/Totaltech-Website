@@ -23,7 +23,7 @@ body {
 
 .QuemSomos{
     display: grid;
-    grid-template-columns: 64% 18% 18%;
+    grid-template-columns: 60% 20% 20%;
     justify-content: flex-start;
 }
 
@@ -31,24 +31,44 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 500px;
+    height: 600px;
     background-color: #64B6AC;
 }
 
 .QuemSomos div:nth-child(2) {
     position: relative;
     fill: #5D737E;
-    top: 50px;
+    top: 115px;
     left: -86px;
 }
 
 #textoQuemSomos {
     position: relative;
-    left: -290px;
+    left: -300px;
     width: 345px;
-    top: 67px;
+    top: 120px;
     color: #DAFFEF;
 }
-#imagemQuemSomos{
-    
+
+/* Animações */
+[data-anima] {
+    opacity: 0;
+    transition: 1s;
+}
+
+[data-anima = "esquerda"]{
+    transform: translate3d(-50px, 0, 0);
+}
+
+[data-anima = "direita"]{
+    transform: translate3d(50px, 0, 0);
+}
+
+[data-anima = "topo"]{
+    transform: translate3d(0, -50px, 0);
+}
+
+[data-anima].animacao {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
 }
