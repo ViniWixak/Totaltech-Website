@@ -78,6 +78,94 @@ body {
     height: 480px;
     margin: 20px;
 }
+
+/* slider */
+
+.portifolioSlider {
+    margin: 0 auto;
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.slides {
+    width: 400%;
+    height: 400px;
+    display: flex;
+}
+
+.slides input  {
+    display: none;
+}
+
+.slide {
+    width: 25%;
+    position: relative;
+}
+
+.slide img {
+    width: 400px;
+}
+
+.manual-navigation {
+    position: absolute;
+    width: 800px;
+    margin-top: -60px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn {
+    border: 2px solid #fff;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.manual-btn:hover {
+    background-color: #5D737E;
+}
+
+.manual-btn:not(:last-child) {
+    margin-right: 40px;
+}
+
+#radio1:checked~ .first {
+    margin-left: 0;
+}
+
+#radio2:checked~ .first {
+    margin-left: -25%;
+}
+
+#radio3:checked~ .first {
+    margin-left: -50%;
+}
+#radio4:checked~ .first {
+    margin-left: -75%;
+}
+
+.navigation-auto div {
+    border: 4px solid #64B6AC;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5;
+}
+
+.navigation-auto {
+    position: absolute;
+    width: 800px;
+    margin-top: 338px;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-auto div:not(:last-child){
+    margin-right: 36px;
+}
+
 /* Animações */
 [data-anima] {
     opacity: 0;
