@@ -23,7 +23,7 @@ body {
 
 .QuemSomos{
     display: grid;
-    grid-template-columns: 60% 20% 20%;
+    grid-template-columns: 70% 20% 10%;
     justify-content: flex-start;
 }
 
@@ -38,34 +38,62 @@ body {
 .QuemSomos div:nth-child(2) {
     position: relative;
     fill: #5D737E;
-    top: 115px;
-    left: -86px;
+    top: 25%;
+    right: 52.5%;
 }
 
 #textoQuemSomos {
     position: relative;
-    left: -300px;
+    right: 285%;
     width: 345px;
-    top: 120px;
+    top: 25%;
     color: #DAFFEF;
 }
 
+.diferencial{
+    display: grid;
+    grid-template-columns: 20% 20% 40% 20%;
+    justify-content: flex-end;
+    background-color: #DAFFEF;
+}
+
+.diferencial div:nth-child(1) { 
+    fill: #64B6AC;
+    position: relative;
+    left: 56%;
+    top: 25%;
+}
+
+.diferencial div:nth-child(2) { 
+    position: relative;
+    top: 25%;
+    right: 0%;
+    color: #FCFFFD;
+}
+
+.diferencial div:nth-child(3) { 
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 480px;
+    margin: 20px;
+}
 /* Animações */
 [data-anima] {
     opacity: 0;
-    transition: 1s;
+    transition: 2s;
 }
 
 [data-anima = "esquerda"]{
-    transform: translate3d(-50px, 0, 0);
+    transform: translate3d(-80px, 0, 0);
 }
 
 [data-anima = "direita"]{
-    transform: translate3d(50px, 0, 0);
+    transform: translate3d(80px, 0, 0);
 }
 
 [data-anima = "topo"]{
-    transform: translate3d(0, -50px, 0);
+    transform: translate3d(0, -80px, 0);
 }
 
 [data-anima].animacao {
