@@ -13,16 +13,15 @@
         <div class="Menu">
             <div class="logo">Totaltech</div>
             <div class = opcoes>
-                <a>Quem somos</a>
-                <a>Diferencial</a>
-                <a>Portifólio</a>
-                <a>Energia solar</a>
-                <a>Fale conosco</a>
+                <a href="#secaoQuemSomos">Quem somos</a>
+                <a href="#secaoDiferencial">Diferencial</a>
+                <a href="#secaoPortifolio">Portifólio</a>
+                <a href="#secaoFaleConosco">Fale conosco</a>
             </div>
         </div>
     </header>
 
-    <div class="QuemSomos">
+    <div class="QuemSomos" id="secaoQuemSomos">
         <div id="imagemQuemSomos">
             <img src="./pics/quemsomos.jpg" alt="Quem somos" style="width: 70%;";>
         </div>
@@ -43,7 +42,7 @@
 
     <div style="width: 100%; height: 80px;"></div>
 
-    <div class="diferencial">
+    <div class="diferencial" id="secaoDiferencial">
         <div id="molduraDiferencial" data-anima="topo">
             <svg width="420" height="280">
                 <rect width="100%" height="100%"/>
@@ -63,42 +62,113 @@
     </div>
 
     <div style="width: 100%; height: 80px;"></div>
-    
-    <div class="portifolioSlider">
-        <div class="slides">
-            <input type="radio" name="radio-btn" id="radio1">
-            <input type="radio" name="radio-btn" id="radio2">
-            <input type="radio" name="radio-btn" id="radio3">
-            <input type="radio" name="radio-btn" id="radio4">
 
-            <div class="slideFirst">
+    <div class="portifolio" id="secaoPortifolio">
+        
+        <h2 class="Titulo-portifolio"">Portifólio</h2>
+
+        <div class="radios">
+            <input class="inputRadios" type="radio" name="slide" id="slide1" checked>
+            <input class="inputRadios" type="radio" name="slide" id="slide2">
+            <input class="inputRadios" type="radio" name="slide" id="slide3">
+            <input class="inputRadios" type="radio" name="slide" id="slide4">
+            <input class="inputRadios" type="radio" name="slide" id="slide5">
+            <input class="inputRadios" type="radio" name="slide" id="slide6">
+        </div>
+    
+        <div class="slides">
+            <div class="slide s1">
                 <img src="./pics/casaJulietaDeSerpa1.jpg" alt="Casa Julieta de Serpa">
+                <div class="slide-description">
+                    <h3 class="Titulo-description">Casa Julieta de Serpa</h3>
+                    <p>Obra projetada e executada em split, mais de 20 equipamentos individuais.</p>
+                    <p>O restaurante do anexo (Blason), teve seu projeto corrigido e reinstalado também pela Totaltech.</p>
+                </div>
+            </div>
+            <div class="slide-description"></div>
+            <div class="slide">
+                <img src="./pics/siriDoGaleao1.jpg" alt="Casa Julieta de Serpa">
+                <div class="slide-description">
+                    <h3 class="Titulo-description">Restaurante Siri do Galeão </h3>
+                    <p>Projeto e execução com splitão.</p>
+                </div>
             </div>
             <div class="slide">
-                <img src="./pics/casaJulietaDeSerpa2.jpg" alt="Casa Julieta de Serpa">
-            </div>
-            <div class="slide">
-                <img src="./pics/fundiçãoProgresso1.png" alt="Fundição Progresso">
+                <img src="./pics/officePark1.jpg" alt="Office Park">
+                <div class="slide-description">
+                    <h3 class="Titulo-description">Condomínio Office Park</h3>
+                    <p>Projeto da Datum, automação da Johnson e instalação dos fan coil (água gelada) e rede de dutos com execução da Totaltech.</p>
+                    <P>12 fan coil de 10 TR cada por andar, perfazendo um total de 600 TR sem incluir a área comum.</P>
+                    <P>Instalação com sistema District Cooling.</P>
+                </div>
             </div>
             <div class="slide">
                 <img src="./pics/fundiçãoProgresso2.jpg" alt="Fundição Progresso">
+                <div class="slide-description">
+                    <h3 class="Titulo-description">Casa de show Fundição Progresso</h3>
+                    <p>Obra Chiller Turbocor da Tosi, projeto Datum, Automação Johnson, Toda a Instalação executada pela Totaltech.</p>
+                    <p>Dois Chiller’s Turbocoor com mancais magnéticos, com sistema de condensação a água.</p>
+                </div>
+            </div>  
+            <div class="slide">
+                <img src="./pics/hotelArena1.jpg" alt="Hotel Arena">
+                <div class="slide-description">
+                    <h3 class="Titulo-description">Hotel Arena Ipanema</h3>
+                    <p>
+                        Dois Chiller  da Hitachi de 100 TR cada, projeto Datum, Automação Johnson, toda a
+                        instalação de exaustão de cozinha, ar exterior, ventilação e ar condicionado executada pela
+                        Totaltech.
+                    </p>
+                </div>
             </div>
+            <div class="slide">
+                <img src="./pics/sãoJose1.jpg" alt="Casa de saúde São José">
+                <div class="slide-description">
+                    <h3 class="Titulo-description">Casa de saúde São José</h3>
+                    <p>11 leitos de UTI com Filtragem absoluta mais o CPD – Sistema água gelada.</p>
+                </div>
+            </div>  
+        </div>
+        
 
-            <div class="navigation-auto">
-                <div class="autoBtn1"></div>
-                <div class="autoBtn2"></div>
-                <div class="autoBtn3"></div>
-                <div class="autoBtn4"></div>
-            </div>
+        <div class="navigation">
+            <label class="bar" for="slide1"></label>
+            <label class="bar" for="slide2"></label>
+            <label class="bar" for="slide3"></label>
+            <label class="bar" for="slide4"></label>
+            <label class="bar" for="slide5"></label>
+            <label class="bar" for="slide6"></label>
+        </div>
+
     </div>
 
-    <div class="manual-navigation">
-        <label for="radio1" class="manual-btn"></label>
-        <label for="radio2" class="manual-btn"></label>
-        <label for="radio3" class="manual-btn"></label>
-        <label for="radio4" class="manual-btn"></label>
-    </div>
+    <div class="faleConosco" id="secaoFaleConosco">
+        <div class="molduraFaleConosco">
+            <h2 class="tituloFaleConosco">Fale conosco</h2>
+            <form onsubmit="return false">
+                <div class="form-iten">
+                    <label for="">Nome: </label>
+                    <input type="text" name="name" placeholder="Nome" required/>
+                </div>
+                <div class="form-iten">
+                    <label for="">Telefone: </label>
+                    <input type="text" name="phone" placeholder="Telefone" required>
+                </div>
+                <div class="form-iten">
+                    <label for="">Email: </label>
+                    <input type="text" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-iten">
+                    <label for="">Mensagem: </label>
+                    <textarea type="text" name="message" cols="30" rows="8" placeholder="Mensagem" required></textarea>               
+                </div>
 
+                <button>Enviar email</button>
+            </form>
+        </div>
+    </div>
+    
     <script type="text/javascript" src="scripts.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 </body>
 </html>
