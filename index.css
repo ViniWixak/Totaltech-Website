@@ -96,12 +96,12 @@ a {
 }
 
 .portifolio {
-    height: 615px;
+    height: 575px;
     width: 1000px;
     border-radius: 20px;
     overflow: hidden;
     position: absolute;
-    top: 220%;
+    top: 200%;
     left: 50%;
     transform: translate(-50%);
     background-color: #5D737E;
@@ -198,11 +198,15 @@ a {
     width: 200px;
 }
 
+.titulo-faleConosco {
+    margin: 0;
+}
+
 .faleConosco {
     height: 650px;
     background-color: #64B6AC;
     position: relative;
-    top: 690px;
+    top: 590px;
 }
 
 input, textarea {
@@ -212,7 +216,7 @@ input, textarea {
 
 .molduraFaleConosco {
     width: 600px;
-    height: 550px;
+    height: 515px;
     position: absolute;
     top: 40px;
     left: 23%;
@@ -223,7 +227,6 @@ input, textarea {
 
 .form-iten {
     display: grid;
-    
     padding-top: 15px;
 }
 
