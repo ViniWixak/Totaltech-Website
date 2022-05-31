@@ -54,15 +54,15 @@ a {
 .QuemSomos div:nth-child(2) {
     position: relative;
     fill: #5D737E;
-    top: 25%;
+    top: 23%;
     right: 52.5%;
 }
 
 #textoQuemSomos {
     position: relative;
-    right: 285%;
-    width: 345px;
-    top: 25%;
+    right: 298%;
+    width: 436px;
+    top: 22%;
     color: #DAFFEF;
 }
 
