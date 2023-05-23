@@ -23,7 +23,7 @@ export const theme = extendTheme({
     global: {
       body: {
         bg: '#fff',
-        color: 'gray.50',
+        color: '#000',
         'select::-webkit-menu': {
           backgroundColor: 'gray.800',
         },
