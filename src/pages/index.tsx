@@ -1,7 +1,7 @@
 import {
   Image,
-  Box,
   Center,
+  Box,
   SimpleGrid,
   Flex,
   Text,
