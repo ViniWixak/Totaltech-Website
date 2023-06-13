@@ -111,7 +111,7 @@ export default function Home() {
                 <Text paddingTop="20px" fontSize="48px" fontWeight="700">
                   TotalTech
                 </Text>
-                <Text mt="-25px" fontSize="28px" fontWeight="400">
+                <Text mt="-10px" fontSize="28px" fontWeight="400">
                   Inovação em{' '}
                   <span style={{ color: '#1488B7' }}>Climatização</span>
                 </Text>
