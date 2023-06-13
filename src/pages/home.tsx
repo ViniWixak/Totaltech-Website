@@ -70,7 +70,7 @@ const products = [
   },
 ];
 
-const images = ['assets/image3.jpg', 'assets/image4.jpg', 'assets/image5.jpg'];
+const images = ['assets/image3.jpg', 'assets/Image43.jpg', 'assets/image5.jpg'];
 export default function Home() {
   const handleClick = () => {
     const phoneNumber = '5521991197332';
@@ -226,7 +226,7 @@ export default function Home() {
                     w="100%"
                     h="100%"
                     objectFit="fill"
-                    src="/assets/image1.jpg"
+                    src="/assets/Imagequemsomos.jpg"
                     borderRadius="15px"
                     transition="opacity 0.5s"
                   />
