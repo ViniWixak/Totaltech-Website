@@ -72,21 +72,21 @@ const products = [
 const navMenu = [
   {
     subMenu: 'Serviços',
-    section: 'sectionB'
+    section: 'sectionB',
   },
   {
     subMenu: 'Quem somos',
-    section: 'sectionC'
+    section: 'sectionC',
   },
   {
     subMenu: 'Filosofia',
-    section: 'sectionD'
+    section: 'sectionD',
   },
   {
     subMenu: 'Contato',
     section: 'sectionF',
   },
-]
+];
 const images = ['assets/image3.jpg', 'assets/Image43.jpg', 'assets/image5.jpg'];
 export default function Home() {
   const handleClick = () => {
@@ -118,27 +118,6 @@ export default function Home() {
     }
   };
 
-  const scrollToSectionD = () => {
-    const sectionD = document.getElementById('sectionD');
-    if (sectionD) {
-      sectionD.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollToSectionE = () => {
-    const sectionE = document.getElementById('sectionE');
-    if (sectionE) {
-      sectionE.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-  const scrollToSectionF = () => {
-    const sectionF = document.getElementById('sectionF');
-    if (sectionF) {
-      sectionF.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-
   const MotionBox = motion(Box);
   return (
     <Layout>
@@ -168,11 +147,14 @@ export default function Home() {
           />
           <SimpleGrid columns={4} gap={4}>
             {navMenu.map((item, idx) => (
-              <Center key={idx} minW="110px" borderBottom="2px solid #76A117" cursor="pointer"   onClick={() => scrollToSection(item.section)}>
-                <Text
-                  fontSize="16px"
-                  fontWeight="500"
-                >
+              <Center
+                key={idx}
+                minW="110px"
+                borderBottom="2px solid #76A117"
+                cursor="pointer"
+                onClick={() => scrollToSection(item.section)}
+              >
+                <Text fontSize="16px" fontWeight="500">
                   {item.subMenu}
                 </Text>
               </Center>
@@ -533,8 +515,16 @@ export default function Home() {
               <Text fontWeight="600" fontSize="14px" py="10px">
                 Preencha seus dados para começar
               </Text>
-              <Box as="form" action="https://formsubmit.co/mrochadias1995@gmail.com" method="POST">
-                <input type="hidden" name="_next" value="http://localhost:3002/" />
+              <Box
+                as="form"
+                action="https://formsubmit.co/mrochadias1995@gmail.com"
+                method="POST"
+              >
+                <input
+                  type="hidden"
+                  name="_next"
+                  value="http://localhost:3002/"
+                />
                 <Box>
                   <Input field="Nome Completo*" placeholder="Joao da Silva" />
                 </Box>

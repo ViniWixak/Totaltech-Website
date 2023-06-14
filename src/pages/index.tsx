@@ -28,9 +28,7 @@ export default function Home() {
             objectFit="contain"
             mb="100px"
           />
-          <Text fontSize="40px">
-            Obrigado por preencher o formulário!
-          </Text>
+          <Text fontSize="40px">Obrigado por preencher o formulário!</Text>
           <Text fontSize="18px" pt="24px">
             Entraremos em contato!
           </Text>
@@ -48,7 +46,7 @@ export default function Home() {
             </Button>
           </Box>
           <Box pt="20px">
-            <Link href='/home'>
+            <Link href="/home">
               <Button
                 colorScheme="blue"
                 variant="outline"
