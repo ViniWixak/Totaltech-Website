@@ -14,7 +14,7 @@ export function Header() {
       bg="#FFF"
       zIndex={2}
     >
-      <Box
+      <Flex
         w="100%"
         display="flex"
         justifyContent="space-between"
@@ -28,15 +28,48 @@ export function Header() {
           objectFit="contain"
           alt="logo"
         />
-        <Box
-          h="100%"
-          w="18rem"
-          display="flex"
-          alignItems="center"
-          justifyContent="right"
-          gap="0.80rem"
-        />
-      </Box>
+        <Flex display={['none', 'none', 'flex']} justify="space-between">
+          <Text
+            w="280px"
+            h="45px"
+            mr="10px"
+            borderRadius="45px"
+            borderColor="#242C3F"
+            color="#242C3F"
+            fontSize="22px"
+            fontWeight={400}
+            _hover={{ bg: '#e6e6e66b' }}
+            _active={{
+              bg: '#E6E6E6 ',
+              transform: 'scale(0.99)',
+            }}
+          
+          >
+            Download Android
+          </Text>
+          <Text
+            w="280px"
+            h="45px"
+            mr="10px"
+            borderRadius="45px"
+            fontSize="22px"
+            fontWeight={400}
+            color="#FFF"
+            backgroundColor="#242C3F"
+            _hover={{ bg: '#20376a' }}
+            _active={{
+              bg: '#212d48',
+              transform: 'scale(0.99)',
+            }}
+            fontFamily="Helvetica Neue Bold, Arial, sans-serif"
+            onClick={() =>
+              window.open('https://testflight.apple.com/join/QNmp2Kdg')
+            }
+          >
+            Download IOS
+          </Text>
+        </Flex>
+      </Flex>
     </Box>
   );
 }

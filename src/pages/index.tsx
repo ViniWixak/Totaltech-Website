@@ -6,6 +6,7 @@ import {
   Flex,
   Text,
   Button,
+  Link,
 } from '@chakra-ui/react';
 import { Icon } from '@iconify/react';
 
@@ -28,11 +29,10 @@ export default function Home() {
             mb="100px"
           />
           <Text fontSize="40px">
-            Nosso novo site
-            <br /> está chegando!
+            Obrigado por preencher o formulário!
           </Text>
           <Text fontSize="18px" pt="24px">
-            Entre em contato conosco!
+            Entraremos em contato!
           </Text>
           <Box pt="20px">
             <Button
@@ -46,6 +46,19 @@ export default function Home() {
             >
               Fale conosco
             </Button>
+          </Box>
+          <Box pt="20px">
+            <Link href='/home'>
+              <Button
+                colorScheme="blue"
+                variant="outline"
+                w="100%"
+                size="lg"
+                mt="6"
+              >
+                Voltar ao site
+              </Button>
+            </Link>
           </Box>
         </Box>
       </Center>

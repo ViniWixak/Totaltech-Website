@@ -69,7 +69,24 @@ const products = [
     icon: 'ph:file-text',
   },
 ];
-
+const navMenu = [
+  {
+    subMenu: 'Serviços',
+    section: 'sectionB'
+  },
+  {
+    subMenu: 'Quem somos',
+    section: 'sectionC'
+  },
+  {
+    subMenu: 'Filosofia',
+    section: 'sectionD'
+  },
+  {
+    subMenu: 'Contato',
+    section: 'sectionF',
+  },
+]
 const images = ['assets/image3.jpg', 'assets/Image43.jpg', 'assets/image5.jpg'];
 export default function Home() {
   const handleClick = () => {
@@ -94,9 +111,75 @@ export default function Home() {
     }
   };
 
+  const scrollToSection = (sectionSelected: string) => {
+    const section = document.getElementById(sectionSelected);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToSectionD = () => {
+    const sectionD = document.getElementById('sectionD');
+    if (sectionD) {
+      sectionD.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToSectionE = () => {
+    const sectionE = document.getElementById('sectionE');
+    if (sectionE) {
+      sectionE.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  const scrollToSectionF = () => {
+    const sectionF = document.getElementById('sectionF');
+    if (sectionF) {
+      sectionF.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+
   const MotionBox = motion(Box);
   return (
     <Layout>
+      <Box
+        w="100%"
+        h="5.5rem"
+        boxShadow="base"
+        display="flex"
+        alignItems="center"
+        top={0}
+        bg="#FFF"
+        zIndex={2}
+      >
+        <Flex
+          w="100%"
+          display="flex"
+          justifyContent="space-between"
+          maxW="1200px"
+          mx="auto"
+          px={{ base: '10px', md: '40px' }}
+        >
+          <Image
+            src="/assets/logo.png"
+            width="200px"
+            objectFit="contain"
+            alt="logo"
+          />
+          <SimpleGrid columns={4} gap={4}>
+            {navMenu.map((item, idx) => (
+              <Center key={idx} minW="110px" borderBottom="2px solid #76A117" cursor="pointer"   onClick={() => scrollToSection(item.section)}>
+                <Text
+                  fontSize="16px"
+                  fontWeight="500"
+                >
+                  {item.subMenu}
+                </Text>
+              </Center>
+            ))}
+          </SimpleGrid>
+        </Flex>
+      </Box>
       <Box paddingTop={['0px', '0px', '30px']} bg="#F3F3F3">
         <Box maxW="1200px" mx="auto" id="sectionA">
           <Flex
@@ -212,7 +295,7 @@ export default function Home() {
             </SimpleGrid>
           </Box>
         </Box>
-        <Flex mt="40px" bg="#1488B7" py="20px">
+        <Flex mt="40px" bg="#1488B7" py="20px" id="sectionC">
           <Flex
             py={['40px', '40px', '30px']}
             px={['20px', '20px', '0px']}
@@ -285,7 +368,7 @@ export default function Home() {
           </Flex>
         </Flex>
       </Box>
-      <Box mt="40px" bg="#fff" maxW="1200px" mx="auto">
+      <Box mt="40px" bg="#fff" maxW="1200px" mx="auto" id="sectionD">
         <Center>
           <Text fontSize="40px" fontWeight="700">
             Nossa Filosofia
@@ -383,7 +466,7 @@ export default function Home() {
           </Container>
         </Box>
       </Box>
-      <Box mt="40px" pb="20px" bg="#76A117">
+      <Box mt="40px" pb="20px" bg="#76A117" id="sectionE">
         <Box maxW="1200px" mx="auto">
           <Center py="20px">
             <Text fontSize="40px" color="#FFF" fontWeight="700">
@@ -429,7 +512,7 @@ export default function Home() {
         </Box>
       </Box>
 
-      <Box pb="20px" bg="#F3F3F3">
+      <Box pb="20px" bg="#F3F3F3" id="sectionF">
         <Box pt="40px" maxW="1200px" mx="auto">
           <Center py="30px">
             <Text fontSize="40px" fontWeight="700">
@@ -450,7 +533,8 @@ export default function Home() {
               <Text fontWeight="600" fontSize="14px" py="10px">
                 Preencha seus dados para começar
               </Text>
-              <Box>
+              <Box as="form" action="https://formsubmit.co/mrochadias1995@gmail.com" method="POST">
+                <input type="hidden" name="_next" value="http://localhost:3002/" />
                 <Box>
                   <Input field="Nome Completo*" placeholder="Joao da Silva" />
                 </Box>
@@ -475,6 +559,7 @@ export default function Home() {
                     fontSize="22px"
                     borderRadius="15px"
                     color="#FFF"
+                    type="submit"
                     backgroundColor="#1488B7"
                     _hover={{ bg: '#76A117' }}
                     _active={{

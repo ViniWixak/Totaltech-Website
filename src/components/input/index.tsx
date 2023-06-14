@@ -27,6 +27,7 @@ export const Input = ({ field, placeholder, password }: InputProps) => {
         type={password ? 'password' : 'text'}
         zIndex={1}
         height="48px"
+        name={field}
         borderRadius="10px"
         placeholder={placeholder}
         size="sm"
