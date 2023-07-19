@@ -11,11 +11,26 @@ import {
   Heading,
   VStack,
   WrapItem,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerBody,
+  useDisclosure,
+  Menu,
+  MenuList,
+  MenuButton,
+  MenuItem,
+  IconButton,
 } from '@chakra-ui/react';
 import { Icon } from '@iconify/react';
 import { useEffect, useState } from 'react';
 import { FiTarget, FiEye, FiHeart } from 'react-icons/fi';
 import { motion } from 'framer-motion';
+import { HamburgerIcon } from '@chakra-ui/icons';
+import { Keyboard, Pagination, Navigation, Autoplay } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Layout } from '@/components/layout';
 import { Input } from '@/components/input';
 
@@ -87,8 +102,15 @@ const navMenu = [
     section: 'sectionF',
   },
 ];
-const images = ['assets/image3.jpg', 'assets/Image43.jpg', 'assets/image5.jpg'];
+const images = [
+  'assets/totaltech1.jpg',
+  'assets/totaltech2.jpg',
+  'assets/totaltech3.jpg',
+  'assets/totaltech4.jpg',
+  'assets/totaltech5.jpg',
+];
 export default function Home() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const handleClick = () => {
     const phoneNumber = '5521991197332';
     const url = `https://api.whatsapp.com/send?phone=${phoneNumber}`;
@@ -145,7 +167,11 @@ export default function Home() {
             objectFit="contain"
             alt="logo"
           />
-          <SimpleGrid columns={4} gap={4}>
+          <SimpleGrid
+            columns={4}
+            gap={4}
+            display={{ base: 'none', md: 'flex' }}
+          >
             {navMenu.map((item, idx) => (
               <Center
                 key={idx}
@@ -160,27 +186,59 @@ export default function Home() {
               </Center>
             ))}
           </SimpleGrid>
+          <Box display={{ base: 'block', md: 'none' }}>
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                aria-label="Options"
+                icon={<HamburgerIcon />}
+                variant="outline"
+              />
+              <MenuList>
+                {navMenu.map((item, idx) => (
+                  <MenuItem
+                    key={idx}
+                    onClick={() => scrollToSection(item.section)}
+                  >
+                    {item.subMenu}
+                  </MenuItem>
+                ))}
+              </MenuList>
+            </Menu>
+          </Box>
         </Flex>
       </Box>
-      <Box paddingTop={['0px', '0px', '30px']} bg="#F3F3F3">
+      <Box paddingTop={{ base: '0px', md: '30px' }} bg="#F3F3F3">
         <Box maxW="1200px" mx="auto" id="sectionA">
           <Flex
             flexDirection={{ base: 'column-reverse', lg: 'row' }}
-            py={['40px', '40px', '30px']}
+            py={['10px', '10px', '30px']}
             px={['20px', '20px', '0px']}
             maxW="1200px"
             mx="auto"
           >
             <Box w={{ base: '100%', lg: '50%' }}>
               <Box maxW="500px">
-                <Text paddingTop="20px" fontSize="48px" fontWeight="700">
+                <Text
+                  paddingTop="20px"
+                  fontSize={{ base: '36px', md: '48px' }}
+                  fontWeight="700"
+                >
                   TotalTech
                 </Text>
-                <Text mt="-10px" fontSize="28px" fontWeight="400">
+                <Text
+                  mt="-10px"
+                  fontSize={{ base: '22px', md: '28px' }}
+                  fontWeight="400"
+                >
                   Inovação em{' '}
                   <span style={{ color: '#1488B7' }}>Climatização</span>
                 </Text>
-                <Text paddingTop="20px" fontSize="22px" fontWeight="400">
+                <Text
+                  paddingTop="20px"
+                  fontSize={{ base: '18px', md: '22px' }}
+                  fontWeight="400"
+                >
                   Líder no mercado de climatização de ambientes. Fornecemos
                   soluções personalizadas em sistemas de HVAC-R - aquecimento,
                   ventilação, ar condicionado e refrigeração - para criar
@@ -192,7 +250,7 @@ export default function Home() {
                 </Text>
                 <Box pt="40px">
                   <Button
-                    w="350px"
+                    w={{ base: '100%', md: '350px' }}
                     h="45px"
                     mr="10px"
                     borderRadius="45px"
@@ -222,7 +280,7 @@ export default function Home() {
                 {images.map((image, index) => (
                   <Image
                     key={index}
-                    h={['100%', '100%', '450px']}
+                    h={{ base: '250px', md: '450px' }}
                     w="100%"
                     objectFit="cover"
                     src={image}
@@ -244,24 +302,27 @@ export default function Home() {
         <Box bg="#FFF" id="sectionB">
           <Box maxW="1200px" mx="auto">
             <Center>
-              <Text fontSize="40px" fontWeight="700">
+              <Text fontSize={{ base: '36px', md: '40px' }} fontWeight="700">
                 Nossos serviços
               </Text>
             </Center>
-            <SimpleGrid pt="20px" columns={[2, 4]} gap={5}>
+            <SimpleGrid pt="20px" columns={[1, 4]} gap={5}>
               {products.map((item, idx) => (
                 <Box
-                  boxShadow="xl"
+                  boxShadow={{ base: '2xl', md: 'xl' }}
                   p="6"
+                  m={{ base: '20px', md: '0px' }}
                   rounded="md"
                   bg="white"
                   borderRadius="5px"
                   key={idx}
                 >
-                  <Box>
-                    <Icon width="50" color="#76A117" icon={item.icon} />
+                  <Box display={{ base: 'none', md: 'block' }}>
+                    <Icon width={50} color="#76A117" icon={item.icon} />
                   </Box>
+
                   <Text
+                    display={{ base: 'none', md: 'block' }}
                     py="10px"
                     color="#76A117"
                     fontSize="18px"
@@ -269,6 +330,20 @@ export default function Home() {
                   >
                     {item.title}
                   </Text>
+                  <Flex alignItems="center" gap={4}>
+                    <Box display={{ base: 'block', md: 'none' }}>
+                      <Icon width={30} color="#76A117" icon={item.icon} />
+                    </Box>
+                    <Text
+                      display={{ base: 'block', md: 'none' }}
+                      py="10px"
+                      color="#76A117"
+                      fontSize="18px"
+                      fontWeight="700"
+                    >
+                      {item.title}
+                    </Text>
+                  </Flex>
                   <Text color="#9191A6" fontSize="16px" fontWeight="400">
                     {item.subTitle}
                   </Text>
@@ -284,8 +359,12 @@ export default function Home() {
             maxW="1200px"
             mx="auto"
           >
-            <Flex justify="flex-end" gap={5}>
-              <Flex w="40%">
+            <Flex
+              justify="flex-end"
+              gap={5}
+              flexDirection={{ base: 'column-reverse', lg: 'row' }}
+            >
+              <Flex w={{ base: '100%', md: '40%' }}>
                 <Box>
                   <Image
                     w="100%"
@@ -297,9 +376,9 @@ export default function Home() {
                   />
                 </Box>
               </Flex>
-              <Box w="60%">
+              <Box w={{ base: '100%', md: '60%' }}>
                 <Text
-                  fontSize="40px"
+                  fontSize={{ base: '36px', md: '40px' }}
                   textAlign="center"
                   color="#F3F3F3"
                   fontWeight="700"
@@ -350,141 +429,172 @@ export default function Home() {
           </Flex>
         </Flex>
       </Box>
-      <Box mt="40px" bg="#fff" maxW="1200px" mx="auto" id="sectionD">
+      <Box
+        mt="40px"
+        bg="#fff"
+        maxW="1200px"
+        mx="auto"
+        p={{ base: '25px', md: '0px' }}
+        id="sectionD"
+      >
         <Center>
-          <Text fontSize="40px" fontWeight="700">
+          <Text fontSize={{ base: '36px', md: '40px' }} fontWeight="700">
             Nossa Filosofia
           </Text>
         </Center>
         <Box py={20}>
-          <Container maxW="container.lg">
-            <Grid templateColumns="repeat(3, 1fr)" gap={8}>
-              <MotionBox
-                borderRadius="lg"
-                borderColor="#76A117"
-                p={6}
-                bg="#76A117"
-                whileHover={{ scale: 1.05, bg: 'teal.100' }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.2 }}
+          <SimpleGrid w="100%" columns={{ base: 1, md: 3 }} gap={8}>
+            <MotionBox
+              borderRadius="lg"
+              borderColor="#76A117"
+              p={6}
+              bg="#76A117"
+              whileHover={{ scale: 1.05, bg: 'teal.100' }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+            >
+              <FiTarget size={40} color="#FFF" />
+              <Heading
+                fontSize="18px"
+                fontWeight="700"
+                color="#FFF"
+                mt={4}
+                mb={2}
               >
-                <FiTarget size={40} color="#FFF" />
-                <Heading
-                  fontSize="18px"
-                  fontWeight="700"
-                  color="#FFF"
-                  mt={4}
-                  mb={2}
-                >
-                  Missão
-                </Heading>
+                Missão
+              </Heading>
+              <Text color="#FFF" fontSize="16px" fontWeight="400">
+                Ofertar aos nossos clientes soluções adequadas e customizadas às
+                suas necessidades, através de alternativas sustentáveis e
+                eficientes, dentro do segmento de refrigeração e qualidade do
+                ar.
+              </Text>
+            </MotionBox>
+            <MotionBox
+              borderRadius="lg"
+              borderColor="#76A117"
+              p={6}
+              bg="#76A117"
+              whileHover={{ scale: 1.05, bg: 'teal.100' }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+            >
+              <FiEye size={40} color="#FFF" />
+              <Heading
+                fontSize="18px"
+                fontWeight="700"
+                color="#FFF"
+                mt={4}
+                mb={2}
+              >
+                Visão
+              </Heading>
+              <Text color="#FFF" fontSize="16px" fontWeight="400">
+                Ser reconhecida como uma empresa de excelência no mercado
+                brasileiro e internacional, por meio de nossa expressiva atuação
+                e constante especialização, proporcionando aos nossos clientes
+                ambientes e processos mais eficientes do ponto de vista
+                energético, agradáveis do ponto de vista climático e estético e
+                saudáveis, considerando o foco na qualidade do ar.
+              </Text>
+            </MotionBox>
+            <MotionBox
+              borderRadius="lg"
+              borderColor="#76A117"
+              p={6}
+              bg="#76A117"
+              whileHover={{ scale: 1.05, bg: 'teal.100' }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+            >
+              <FiHeart size={40} color="#FFF" />
+              <Heading
+                fontSize="18px"
+                fontWeight="700"
+                color="#FFF"
+                mt={4}
+                mb={2}
+              >
+                Valores
+              </Heading>
+              <VStack align="start" spacing={2}>
                 <Text color="#FFF" fontSize="16px" fontWeight="400">
-                  Ofertar aos nossos clientes soluções adequadas e customizadas
-                  às suas necessidades, através de alternativas sustentáveis e
-                  eficientes, dentro do segmento de refrigeração e qualidade do
-                  ar.
+                  Servir e buscar sistematicamente a satisfação de nossos
+                  clientes.
                 </Text>
-              </MotionBox>
-              <MotionBox
-                borderRadius="lg"
-                borderColor="#76A117"
-                p={6}
-                bg="#76A117"
-                whileHover={{ scale: 1.05, bg: 'teal.100' }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.2 }}
-              >
-                <FiEye size={40} color="#FFF" />
-                <Heading
-                  fontSize="18px"
-                  fontWeight="700"
-                  color="#FFF"
-                  mt={4}
-                  mb={2}
-                >
-                  Visão
-                </Heading>
                 <Text color="#FFF" fontSize="16px" fontWeight="400">
-                  Ser reconhecida como uma empresa de excelência no mercado
-                  brasileiro e internacional, por meio de nossa expressiva
-                  atuação e constante especialização, proporcionando aos nossos
-                  clientes ambientes e processos mais eficientes do ponto de
-                  vista energético, agradáveis do ponto de vista climático e
-                  estético e saudáveis, considerando o foco na qualidade do ar.
+                  Comprometidos com a capacitação constante de nossa equipe,
+                  tanto tecnicamente como na compreensão e propagação dos
+                  valores éticos e humanitários.
                 </Text>
-              </MotionBox>
-              <MotionBox
-                borderRadius="lg"
-                borderColor="#76A117"
-                p={6}
-                bg="#76A117"
-                whileHover={{ scale: 1.05, bg: 'teal.100' }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.2 }}
-              >
-                <FiHeart size={40} color="#FFF" />
-                <Heading
-                  fontSize="18px"
-                  fontWeight="700"
-                  color="#FFF"
-                  mt={4}
-                  mb={2}
-                >
-                  Valores
-                </Heading>
-                <VStack align="start" spacing={2}>
-                  <Text color="#FFF" fontSize="16px" fontWeight="400">
-                    Servir e buscar sistematicamente a satisfação de nossos
-                    clientes.
-                  </Text>
-                  <Text color="#FFF" fontSize="16px" fontWeight="400">
-                    Comprometidos com a capacitação constante de nossa equipe,
-                    tanto tecnicamente como na compreensão e propagação dos
-                    valores éticos e humanitários.
-                  </Text>
-                </VStack>
-              </MotionBox>
-            </Grid>
-          </Container>
+              </VStack>
+            </MotionBox>
+          </SimpleGrid>
         </Box>
       </Box>
-      <Box mt="40px" pb="20px" bg="#76A117" id="sectionE">
+      <Box mt={{ base: '-50px', md: '40px' }} pb="20px" id="sectionE">
         <Box maxW="1200px" mx="auto">
           <Center py="20px">
-            <Text fontSize="40px" color="#FFF" fontWeight="700">
+            <Text
+              fontSize={{ base: '36px', md: '40px' }}
+              color="#76A117"
+              fontWeight="700"
+            >
               Nossos Clientes
             </Text>
           </Center>
           <Box>
-            <SimpleGrid columns={4} gap={5}>
+            <SimpleGrid columns={{ base: 2, md: 6 }} gap={5}>
               <Center>
                 <Image
+                  w="150px"
                   objectFit="fill"
-                  src="/assets/julieta-de-serpa.png"
+                  src="/assets/cliente1.jpg"
                   borderRadius="15px"
                   transition="opacity 0.5s"
                 />
               </Center>
               <Center>
                 <Image
+                  w="150px"
                   objectFit="fill"
-                  src="/assets/fundicao-progressopng.png"
+                  src="/assets/cliente2.png"
                   borderRadius="15px"
                   transition="opacity 0.5s"
                 />
               </Center>
               <Center>
                 <Image
+                  w="150px"
                   objectFit="fill"
-                  src="/assets/julieta-de-serpa.png"
+                  src="/assets/cliente3.png"
                   borderRadius="15px"
                   transition="opacity 0.5s"
                 />
               </Center>
               <Center>
                 <Image
+                  w="150px"
                   objectFit="fill"
-                  src="/assets/fundicao-progressopng.png"
+                  src="/assets/cliente4.png"
+                  borderRadius="15px"
+                  transition="opacity 0.5s"
+                />
+              </Center>
+              <Center>
+                <Image
+                  w="150px"
+                  objectFit="fill"
+                  src="/assets/cliente5.png"
+                  borderRadius="15px"
+                  transition="opacity 0.5s"
+                />
+              </Center>
+              <Center>
+                <Image
+                  w="150px"
+                  objectFit="fill"
+                  src="/assets/cliente6.png"
                   borderRadius="15px"
                   transition="opacity 0.5s"
                 />
@@ -497,14 +607,31 @@ export default function Home() {
       <Box pb="20px" bg="#F3F3F3" id="sectionF">
         <Box pt="40px" maxW="1200px" mx="auto">
           <Center py="30px">
-            <Text fontSize="40px" fontWeight="700">
+            <Text
+              px={{ base: '20px', md: '0px' }}
+              textAlign={{ base: 'center', md: 'left' }}
+              fontSize={{ base: '24px', md: '40px' }}
+              fontWeight="700"
+            >
               Preencha o formulário e entraremos em contato!
             </Text>
           </Center>
-          <Flex pb="50px" justify="space-between">
-            <Box w="45%" bg="#FFF" borderRadius="10px" py="30px" px="30px">
+          <Flex
+            pb="50px"
+            justify="space-between"
+            flexDirection={{ base: 'column', lg: 'row' }}
+          >
+            <Flex
+              flexDirection="column"
+              mx="auto"
+              w={{ base: '90%', md: '45%' }}
+              bg="#FFF"
+              borderRadius="10px"
+              py="30px"
+              px={{ base: '20px', md: '30px' }}
+            >
               <Text
-                fontSize="24px"
+                fontSize={{ base: '18px', md: '24px' }}
                 fontFamily="Roboto, Arial, sans-serif"
                 fontWeight="700"
                 color="##262C3D"
@@ -525,6 +652,7 @@ export default function Home() {
                   name="_next"
                   value="https://totaltechclimatizacao.com.br/enviado-com-sucesso"
                 />
+                <input type="hidden" name="_captcha" value="false" />
                 <Box>
                   <Input field="Nome Completo*" placeholder="Joao da Silva" />
                 </Box>
@@ -544,7 +672,7 @@ export default function Home() {
                 <Box pt="40px">
                   <Button
                     w="full"
-                    h="50px"
+                    h={{ base: '40px', md: '50px' }}
                     fontWeight="700"
                     fontSize="22px"
                     borderRadius="15px"
@@ -561,9 +689,15 @@ export default function Home() {
                   </Button>
                 </Box>
               </Box>
-            </Box>
-            <Box w="50%">
-              <Flex w="100%" h="100%" objectFit="fill">
+            </Flex>
+            <Box w={{ base: '100%', md: '50%' }}>
+              <Flex
+                pt={{ base: '30px', md: '' }}
+                w={{ base: '90%', md: '100%' }}
+                mx={{ base: 'auto', md: '' }}
+                h="100%"
+                objectFit="fill"
+              >
                 <Image
                   objectFit="fill"
                   src="/assets/image6.jpg"
@@ -588,7 +722,7 @@ export default function Home() {
             2023 TotalTech Climatização
             <br /> Todos os direitos reservados. CNPJ: nº
           </Text>
-          <Center flexDir={['column', 'column', 'row']}>
+          <Flex flexDir={['column', 'column', 'row']}>
             <Text
               fontFamily="aktiv-grotesk, sans-serif"
               fontWeight="700"
@@ -598,17 +732,29 @@ export default function Home() {
             >
               Atendimento:
             </Text>
-            <Text
-              ml="20px"
-              fontWeight="400"
-              fontSize="14px"
-              color="#B0B0B0"
-              textAlign={['center', 'center', 'left']}
-              py={['5px', '5px', '0px']}
-            >
-              contato@totaltech.com (21) 99119-7332
-            </Text>
-          </Center>
+            <Box>
+              <Text
+                ml="20px"
+                fontWeight="400"
+                fontSize="14px"
+                color="#B0B0B0"
+                textAlign={['center', 'center', 'left']}
+                py={['5px', '5px', '0px']}
+              >
+                contato@totaltech.com
+              </Text>
+              <Text
+                ml="20px"
+                fontWeight="400"
+                fontSize="14px"
+                color="#B0B0B0"
+                textAlign={['center', 'center', 'left']}
+                py={['5px', '5px', '0px']}
+              >
+                (21) 99119-7332
+              </Text>
+            </Box>
+          </Flex>
           <Center gap={5}>
             <Text fontWeight="700" fontSize="14px" color="#FFF">
               Siga nosso Instagram
