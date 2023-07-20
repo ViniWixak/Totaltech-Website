@@ -741,7 +741,7 @@ export default function Home() {
                 textAlign={['center', 'center', 'left']}
                 py={['5px', '5px', '0px']}
               >
-                contato@totaltech.com
+                totaltech@totaltechclimatizacao.com.br
               </Text>
               <Text
                 ml="20px"
@@ -756,21 +756,21 @@ export default function Home() {
             </Box>
           </Flex>
           <Center gap={5}>
-            <Text fontWeight="700" fontSize="14px" color="#FFF">
+            {/* <Text fontWeight="700" fontSize="14px" color="#FFF">
               Siga nosso Instagram
             </Text>
-            <Flex gap={2}>
-              {/* <Center w="25px">
+            <Flex gap={2}> */}
+            {/* <Center w="25px">
                 <Image
                   cursor="pointer"
                   src="/icons/icon_facebook.png"
                   objectFit="cover"
                 />
               </Center> */}
-              <Box color="#FFF" cursor="pointer">
+            {/* <Box color="#FFF" cursor="pointer">
                 <Icon width="30px" icon="bi:instagram" />
-              </Box>
-            </Flex>
+              </Box> */}
+            {/* </Flex> */}
           </Center>
         </SimpleGrid>
         <WrapItem display={['none', 'none', 'grid']}>
